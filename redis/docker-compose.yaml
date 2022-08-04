@@ -1,0 +1,32 @@
+version: "3.2"
+
+services:
+
+  redis:
+    container_name: redis_server
+    image: "redis:alpine"
+  
+    command: redis-server # --requirepass 2fYkMTMFCpJ9&6o&9u7s # please change
+  
+    ports:
+      - "127.0.0.1:6379:6379"
+  
+    volumes:
+      - $PWD/redis-data:/var/lib/redis
+      - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
+  
+    environment:
+      - REDIS_REPLICATION_MODE=master
+  
+    networks:
+      node_net:
+        ipv4_address: 172.28.1.4
+
+# networking for the Redis container
+
+networks:
+  node_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16

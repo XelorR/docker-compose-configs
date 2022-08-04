@@ -1,0 +1,10 @@
+clickhouse/db
+postgres/db_data
+postgres/orders.sql
+postgres/pgadmin_data
+postgres/*.dump
+postgres/*.sql
+redis/*.py
+redis/redis
+redis/venv
+
