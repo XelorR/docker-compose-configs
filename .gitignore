@@ -7,4 +7,5 @@ postgres/*.sql
 redis/*.py
 redis/redis
 redis/venv
+mongodb/notepad.txt
 
